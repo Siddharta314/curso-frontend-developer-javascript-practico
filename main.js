@@ -5,20 +5,20 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
 
 function toggleDesktopMenu(){
-    aside.classList.add('inactive'); 
+    shoppingCartContainer.classList.add('inactive'); 
 
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
-    aside.classList.add('inactive'); 
+    shoppingCartContainer.classList.add('inactive'); 
 
     mobileMenu.classList.toggle('inactive');
 }
@@ -26,7 +26,7 @@ function toggleMobileMenu() {
 function toogleCarritoAside(){
     mobileMenu.classList.add('inactive');
 
-    aside.classList.toggle('inactive'); 
+    shoppingCartContainer.classList.toggle('inactive'); 
 }
 
 
@@ -36,8 +36,6 @@ productList.push({
     name: 'Bike',
     price: 120
 })
-
-
 productList.push ({
     name:'Bicycle helmet',
     price: 1200,
