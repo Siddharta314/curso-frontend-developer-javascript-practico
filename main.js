@@ -5,30 +5,45 @@ const menuHamIcon = document.querySelector('.menu');
 const mobileMenu = document.querySelector('.mobile-menu');
 
 const menuCarritoIcon = document.querySelector('.navbar-shopping-cart');
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+const productDetailContainer = document.querySelector('#productDetail');
 
 menuEmail.addEventListener('click', toggleDesktopMenu);
 menuHamIcon.addEventListener('click', toggleMobileMenu);
 menuCarritoIcon.addEventListener('click', toogleCarritoAside);
+productDetailCloseIcon.addEventListener('click', closeProductDetails);
 
 function toggleDesktopMenu(){
     shoppingCartContainer.classList.add('inactive'); 
-
+    productDetailContainer.classList.add('inactive');
     desktopMenu.classList.toggle('inactive');
 }
 
 function toggleMobileMenu() {
     shoppingCartContainer.classList.add('inactive'); 
-
+    productDetailContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     mobileMenu.classList.toggle('inactive');
 }
 
 function toogleCarritoAside(){
     mobileMenu.classList.add('inactive');
-
+    productDetailContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
     shoppingCartContainer.classList.toggle('inactive'); 
 }
 
+function openProductDetails(){ //
+    shoppingCartContainer.classList.add('inactive'); 
+    mobileMenu.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    productDetailContainer.classList.remove('inactive');
+}
+
+function closeProductDetails(){ //
+    productDetailContainer.classList.add('inactive');
+}
 
 const productList = [];
 productList.push({
@@ -62,7 +77,7 @@ cardsContainer.innerHTML ="";
 
 for(product of productList){
     const productCard =  `<div class="product-card">
-        <img src=${product.image} alt="">
+        <img src=${product.image} alt="" onclick="openProductDetails()">
         <div class="product-info">
           <div>
             <p>$${product.price}</p>
